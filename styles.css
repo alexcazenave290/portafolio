@@ -319,10 +319,34 @@ body {
     height: 2px;
     background: #ffd700;
     transition: width 0.3s ease;
+    box-shadow: 0 0 10px #ffd700;
 }
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-link:active {
+    transform: scale(0.95);
+    color: #ffed4e !important;
+}
+
+/* Efecto de click en enlaces de navegación */
+.nav-link-clicked {
+    animation: nav-click 0.4s ease-out;
+}
+
+@keyframes nav-click {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px #ffd700;
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Títulos de sección */
@@ -382,19 +406,54 @@ body {
     }
     
     nav .flex.gap-6 {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    nav .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.875rem;
+        text-align: center;
     }
     
     .section-title span {
         font-size: 2rem;
         padding: 0.5rem 1rem;
     }
+    
+    .power-level-container {
+        transform: scale(0.8);
+    }
+    
+    #powerLevel {
+        font-size: 2.5rem;
+    }
 }
 
 /* Scroll suave */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset para el navbar fijo */
+}
+
+/* Animación de flash durante el scroll */
+@keyframes scroll-flash {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
 }
 
 /* Ocultar scrollbar pero mantener funcionalidad */
