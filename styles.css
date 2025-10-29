@@ -1,0 +1,417 @@
+/* Fuentes personalizadas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.font-bangers {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+}
+
+/* Efecto de sombra DBZ */
+.dbz-shadow {
+    text-shadow: 
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Efecto de brillo para texto */
+.glow-text {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #ffd700,
+            0 0 40px #ffd700,
+            0 0 50px #ffd700,
+            3px 3px 0 #000,
+            -1px -1px 0 #000;
+    }
+    to {
+        text-shadow: 
+            0 0 20px #fff,
+            0 0 30px #ffed4e,
+            0 0 40px #ffed4e,
+            0 0 50px #ffed4e,
+            0 0 60px #ffed4e,
+            3px 3px 0 #000,
+            -1px -1px 0 #000;
+    }
+}
+
+/* Partículas de energía de fondo */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    animation: float 6s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 5s;
+}
+
+.particle:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation-delay: 1s;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(3) {
+    top: 80%;
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 6s;
+}
+
+.particle:nth-child(4) {
+    top: 40%;
+    left: 60%;
+    animation-delay: 1.5s;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(5) {
+    top: 10%;
+    left: 90%;
+    animation-delay: 0.5s;
+    animation-duration: 5.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-60px) translateX(-20px) scale(0.8);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateY(-30px) translateX(30px) scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Efecto de aura */
+.aura-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    animation: aura-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes aura-pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+/* Barra de energía */
+.energy-bar-container {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.energy-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff6600);
+    animation: energy-flow 2s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes energy-flow {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Pulso del nivel de poder */
+.power-pulse {
+    animation: power-pulse 2s ease-in-out infinite;
+}
+
+@keyframes power-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.9);
+    }
+}
+
+/* Brillo de tarjetas */
+.card-glow {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05) !important;
+}
+
+/* Tarjetas de tecnología */
+.tech-card {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.8), rgba(255, 69, 0, 0.8));
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 3px solid #ffd700;
+    text-align: center;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px) rotate(5deg);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+}
+
+/* Tarjetas de "Actualmente" */
+.currently-card {
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.8), rgba(0, 100, 255, 0.8));
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 3px solid #4169e1;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.currently-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(65, 105, 225, 0.6);
+}
+
+/* Animación del título hero */
+.hero-title {
+    animation: hero-entrance 1s ease-out;
+}
+
+@keyframes hero-entrance {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Efecto Kamehameha */
+.kamehameha-effect {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #00bfff, #1e90ff);
+    border-radius: 50%;
+    animation: kamehameha 2s ease-in-out infinite;
+    box-shadow: 
+        0 0 20px #00bfff,
+        0 0 40px #1e90ff,
+        0 0 60px #4169e1;
+}
+
+@keyframes kamehameha {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* Botón de GitHub */
+.github-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff8c00, #ff6347);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 4px solid #ffd700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.github-button:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 
+        0 8px 30px rgba(255, 215, 0, 0.8),
+        0 0 40px rgba(255, 140, 0, 0.6);
+    background: linear-gradient(135deg, #ff6347, #ff4500);
+}
+
+/* Enlaces de navegación */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Títulos de sección */
+.section-title span {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.section-title span:hover {
+    transform: rotate(0deg) scale(1.1);
+}
+
+/* Tarjeta de objetivo */
+.objective-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.objective-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Contador de nivel de poder animado */
+#powerLevel {
+    animation: number-flicker 0.5s ease-in-out infinite;
+}
+
+@keyframes number-flicker {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    nav .flex.gap-6 {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .section-title span {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff8c00, #ffd700);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffd700, #ffed4e);
+}
+
