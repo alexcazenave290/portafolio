@@ -27,19 +27,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     animatePower();
 
-    // Scroll suave para los enlaces de navegación
+    // Scroll suave para los enlaces de navegación con efecto DBZ
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Agregar animación al enlace clickeado
+                this.classList.add('nav-link-clicked');
+                setTimeout(() => {
+                    this.classList.remove('nav-link-clicked');
+                }, 400);
+                
+                // Crear efecto de energía durante el scroll
+                createScrollEffect();
+                
+                // Calcular posición con offset para el navbar
+                const navbarHeight = 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                // Scroll suave personalizado
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
+
+    // Función para crear efecto visual durante el scroll
+    function createScrollEffect() {
+        const flash = document.createElement('div');
+        flash.style.position = 'fixed';
+        flash.style.top = '0';
+        flash.style.left = '0';
+        flash.style.width = '100%';
+        flash.style.height = '100%';
+        flash.style.background = 'radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%)';
+        flash.style.pointerEvents = 'none';
+        flash.style.zIndex = '9999';
+        flash.style.animation = 'scroll-flash 0.6s ease-out';
+        
+        document.body.appendChild(flash);
+        
+        setTimeout(() => {
+            flash.remove();
+        }, 600);
+    }
 
     // Animación de aparición de elementos al hacer scroll
     const observerOptions = {
